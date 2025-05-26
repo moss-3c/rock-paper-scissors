@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 function getComputerChoice () {
     
     //randomly return rock paper scissors
@@ -18,4 +16,68 @@ function getComputerChoice () {
             return "error: choice is "+choice;
     }
 }
+
+function getHumanChoice() {
+    let humanChoice = prompt("rock, paper, or scissors?");
+    return humanChoice;
+}
+
+function playRound (humanChoice, computerChoice) {
+    console.log("You chose: "+humanChoice+". Computer chose: "+computerChoice);
+
+    switch (humanChoice) {
+        case computerChoice:
+            console.log("Tie! Both players chose", humanChoice);
+            break;
+        case "rock":
+            switch (computerChoice) {
+                case "scissors":
+                    humanScore++;
+                    console.log("You win! Rock beats scissors")
+                    break;
+                case "paper":
+                    computerScore++;
+                    console.log("You lose! Paper beats rock")
+                    break;
+            }
+            break;
+        case "paper":
+            switch (computerChoice) {
+                case "rock":
+                    humanScore++;
+                    console.log("You win! Paper beats rock")
+                    break;
+                case "scissors":
+                    computerScore++;
+                    console.log("You lose! Scissors beats paper")
+                    break;
+            }
+            break;
+        case "scissors":
+            switch (computerChoice) {
+                case "rock":
+                    computerScore++;
+                    console.log("You lose! Rock beats scissors");
+                    break;
+                case "paper":
+                    humanScore++;
+                    console.log("You win! Paper beats scissors");
+                    break;
+            }
+            break;
+        default:
+            console.log("smth went wrong..");
+    }
+    }
+
+
+let humanScore = 0;
+let computerScore = 0;
+
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+
+playRound(humanChoice, computerChoice);
+
+
 
