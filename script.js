@@ -19,7 +19,7 @@ function getComputerChoice () {
 
 function getHumanChoice() {
     let humanChoice = prompt("rock, paper, or scissors?");
-    return humanChoice;
+    return humanChoice.toLowerCase().trim();
 }
 
 function playRound (humanChoice, computerChoice) {
