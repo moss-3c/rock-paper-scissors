@@ -23,6 +23,7 @@ function getHumanChoice() {
 }
 
 function playRound (humanChoice, computerChoice) {
+
     console.log("You chose: "+humanChoice+". Computer chose: "+computerChoice);
 
     switch (humanChoice) {
@@ -67,17 +68,32 @@ function playRound (humanChoice, computerChoice) {
             break;
         default:
             console.log("smth went wrong..");
+            console.log("computer", computerChoice, "human", humanChoice);
     }
     }
 
+function playGame () {
+
+    let humanChoice, computerChoice;
+
+    //play 5 rounds
+    for (let i = 0; i < 5; i++) {
+        humanChoice = getHumanChoice();
+        computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+    }
+
+    //declare winner
+    humanScore === computerScore  ? console.log("Tie! Your score: "+ humanScore + ". Computer's score: "+computerScore):
+    humanScore > computerScore    ? console.log("You win! You score: "+ humanScore + ". Computer's score: "+computerScore):
+    console.log("You lose! Your score: "+ humanScore + ". Computer's score: "+computerScore);
+
+}
 
 let humanScore = 0;
 let computerScore = 0;
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
-
-playRound(humanChoice, computerChoice);
+playGame(); //5 rounds
 
 
 
